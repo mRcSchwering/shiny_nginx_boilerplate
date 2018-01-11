@@ -46,7 +46,8 @@ def extractText(contents):
 def scrapeWikiTable(url_chr, class_chr="wikitable sortable"):
     """Used for getting info about indices like DAX or so"""
     soup = BeautifulSoup(urllib2.urlopen(url_chr), "lxml")
-    tabRows = soup.find("table", class_=class_chr).table.find_all("tr")
+    table = soup.find("table", class_=class_chr)
+    tabRows = table.find_all("tr")
 
     header = []
     for cell in tabRows[0].find_all("th"):
@@ -65,4 +66,4 @@ def scrapeWikiTable(url_chr, class_chr="wikitable sortable"):
 
 def main():
     dax = "https://en.wikipedia.org/wiki/DAX"
-    return scrapeWiki(dax)
+    return scrapeWikiTable(dax)
