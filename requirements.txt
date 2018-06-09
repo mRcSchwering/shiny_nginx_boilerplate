@@ -1,3 +1,0 @@
-pandas_datareader
-datetime
-bs4

@@ -1,0 +1,11 @@
+version: '2'
+
+services:
+
+  shinyserver:
+    build: shinyserver/
+
+  webserver:
+    build: webserver/
+    ports:
+      - 80:80
